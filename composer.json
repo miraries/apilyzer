@@ -1,0 +1,54 @@
+{
+    "name": "miraries/apilyzer",
+    "description": "Simple zero-setup UI for testing your Laravel APIs",
+    "keywords": [
+        "miraries",
+        "apilyzer"
+    ],
+    "homepage": "https://github.com/miraries/apilyzer",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Ivan Kotlaja",
+            "email": "laravel@ivnk.dev",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "illuminate/support": "^6.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^4.0",
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Miraries\\Apilyzer\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Miraries\\Apilyzer\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Miraries\\Apilyzer\\ApilyzerServiceProvider"
+            ],
+            "aliases": {
+                "Apilyzer": "Miraries\\Apilyzer\\ApilyzerFacade"
+            }
+        }
+    }
+}
