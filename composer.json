@@ -16,8 +16,10 @@
         }
     ],
     "require": {
-        "php": "^7.1",
-        "illuminate/support": "^6.0"
+        "php": "^7.2",
+        "illuminate/support": "^6.0|^7.0",
+        "nikic/php-parser": "^4.4",
+        "ext-json": "*"
     },
     "require-dev": {
         "orchestra/testbench": "^4.0",
@@ -25,7 +27,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Miraries\\Apilyzer\\": "src"
+            "Miraries\\Apilyzer\\": "src",
+            "Miraries\\Apilyzer\\Middleware\\": "src/Middleware"
         }
     },
     "autoload-dev": {
@@ -36,7 +39,6 @@
     "scripts": {
         "test": "vendor/bin/phpunit",
         "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
-
     },
     "config": {
         "sort-packages": true

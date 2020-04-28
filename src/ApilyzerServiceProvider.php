@@ -2,7 +2,11 @@
 
 namespace Miraries\Apilyzer;
 
+use Illuminate\Routing\Route;
+use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
+use Miraries\Apilyzer\Middleware\InterceptAPICalls;
+use Miraries\Apilyzer\Middleware\InterceptWebCalls;
 
 class ApilyzerServiceProvider extends ServiceProvider
 {
@@ -42,7 +46,12 @@ class ApilyzerServiceProvider extends ServiceProvider
             // Registering package commands.
             // $this->commands([]);
         }
-    }
+
+        /** @var Router $router */
+        $router = $this->app['router'];
+//            $router->pushMiddlewareToGroup('web', InterceptWebCalls::class);
+            $router->pushMiddlewareToGroup('api', InterceptAPICalls::class);
+        }
 
     /**
      * Register the application services.
